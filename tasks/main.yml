@@ -1,0 +1,16 @@
+---
+# tasks file for apache
+#
+- name: i'm going to install apache
+  yum:
+    name: httpd
+    state: present
+- name: i'm going to started apache
+  service: 
+    name: httpd
+    state: started
+- name: config index.html
+  copy:
+    src: files/index.html
+    dest: /var/www/html/index.html
+    mode: '0777'
